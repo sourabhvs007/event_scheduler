@@ -1,4 +1,4 @@
-FROM ruby:2.2.3
+FROM ruby:2.3.0
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils && apt-get install vim -y apache2 -y libpq-dev -y build-essential -y nodejs libxslt-dev -y libxml2-dev -y zlib1g-dev -y
 RUN mkdir event_scheduler 
 WORKDIR /event_scheduler
