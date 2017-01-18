@@ -9,6 +9,7 @@ RUN gem install bundler
 RUN bundle config build.nokogiri --use-system-libraries
 RUN gem install json -v '1.8.6'
 RUN gem install bcrypt -v '3.1.11'
+RUN gem install unf_ext -v '0.0.7.2'
 RUN bundle install 
 ADD . /event_scheduler
 EXPOSE 3000
