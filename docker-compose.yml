@@ -1,0 +1,25 @@
+version: '2'
+services:
+  web:
+    build: . 
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports: 
+      - "3000:3000"
+    depends_on:
+      - postgres
+    links: 
+      - postgres
+    environment:
+      RACK_ENV: development
+      SHOW: 'true'                                
+
+    environment:
+      - RACK_ENV=development
+      - SHOW=true
+  postgres:
+    image: postgres:9.5.4
+    environment:
+      - POSTGRES_PASSWORD = <%= ENV["RDS_PASSWORD"] %>
+      - POSTGRES_USER = <%= ENV["RDS_USERNAME"] %> 
+      - POSTGRES_DB = <%= ENV["RDS_DB_NAME"] %>
+                        

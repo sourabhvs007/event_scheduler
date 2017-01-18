@@ -1,0 +1,20 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: event_scheduler
+  pool: 5
+  username: postgres
+  password: 
+  host: postgres-d8573207
+  port: 5432
+
+development: &default
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV["RDS_DB_NAME"] %>
+  pool: 5
+  username: <%= ENV["RDS_USERNAME"] %>
+  password: <%= ENV["RDS_PASSWORD"] %>
+  host: <%= ENV["RDS_HOSTNAME"] %>
+  port: 5432
+

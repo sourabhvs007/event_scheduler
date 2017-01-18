@@ -1,0 +1,46 @@
+<div>
+      <div class="container-fluid">
+        
+        <nav class="navbar navbar-inverse">
+        <%= image_tag("logo.png",:class => "img_preview")%>
+          <ul class="nav navbar-nav navbar-right">
+            <!-- <li><%= link_to 'sign out',session_destroy_path%>
+            </li> -->
+            <li><%=image_tag current_user.image,:class => 'img_preview'%></li>
+            <li><%=link_to current_user.username,user_edit_path(current_user)%></li>
+            <li><%= button_to "sign out",session_destroy_path,:class => "btn btn-md btn-success signbutton",method: :get%></li>
+
+            <!-- <li><button type="button" class="btn btn-success btn-md btn-space1" data-toggle="modal" data-target="#myModal1">Sign out</button>
+            </li> -->
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+
+<div class = "col-sm-4">
+
+    <div class="container well eventform">
+    <h2>Create event</h2>
+    <%=form_for :event,url: event_create_form_path,:html => {:class => "form-horizontal center"} do |f|%>
+          <%=f.label :Event_name%><br>
+          <%=f.text_field :event_name, class: "form-control"%><br>
+          <%=f.label :Venue,class: "control-label"%><br>
+          <%=f.text_field :venue, class: "form-control"%><br>
+          <%=f.label :Date%><br>
+          <%=f.text_field :date, class: "form-control"%><br>
+          <%=f.label :Time%><br>
+          <%=f.text_field :time, class: "form-control"%><br>
+          <%=f.label :Description%><br>
+          <%=f.text_field :description, class: "form-control"%><br>
+          <%@users.each do |t|%><br>
+          <%=check_box_tag 'invitee_ids[]',t.id%><%=t.username%><br>
+          <%end%>
+          <%=f.label :status%><br>
+          <%= f.select :status, ['open', 'closed'], class: "form-control"%><br><br>
+          <%=f.submit :ok%>
+          <%= f.submit "cancel", :type => "reset" %><br>
+        <%end%>
+     </div>
+
+     </div>
