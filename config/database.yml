@@ -5,7 +5,7 @@ production:
   pool: 5
   username: postgres
   password: 
-  host: postgres-d8573207
+  host: postgres-eventS
   port: 5432
 
 development: &default
@@ -25,5 +25,5 @@ it:
   pool: 5
   username: postgres
   password: 
-  host: postgres-d8573207
+  host: postgres-eventS
   port: 5432
