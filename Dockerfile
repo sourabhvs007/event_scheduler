@@ -1,5 +1,5 @@
 FROM ruby:2.3.0
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils && apt-get install vim -y apache2 -y libpq-dev -y build-essential -y nodejs libxslt-dev -y libxml2-dev -y zlib1g-dev -y libgmp-dev -y
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils && apt-get install vim -y apache2 -y libpq-dev -y build-essential -y nodejs libxslt-dev -y libxml2-dev -y zlib1g-dev -y libgmp-dev -y libgmp3-dev -y
 RUN mkdir event_scheduler 
 WORKDIR /event_scheduler
 ADD Gemfile /event_scheduler/Gemfile 
