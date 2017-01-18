@@ -1,5 +1,5 @@
 FROM ruby:2.2.3
-RUN apt-get update && apt-get install vim -y apache2 -y libpq-dev -y build-essential -y nodejs
+RUN apt-get update && apt-get install vim -y apache2 -y libpq-dev -y build-essential -y nodejs -y --no-install-recommends apt-utils
 RUN mkdir event_scheduler 
 WORKDIR /event_scheduler
 ADD Gemfile /event_scheduler/Gemfile 
