@@ -7,6 +7,7 @@ ADD Gemfile.lock /event_scheduler/Gemfile.lock
 RUN gem install rails
 RUN gem install bundler
 RUN bundle config build.nokogiri --use-system-libraries
+RUN gem install json -v '1.8.6'
 RUN bundle install 
 ADD . /event_scheduler
 EXPOSE 3000
